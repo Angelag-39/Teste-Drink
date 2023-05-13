@@ -1,32 +1,44 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'
+import { useState } from 'react';
 import Header from './Components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Carrossel from './Components/Carousel/Carousel';
 import Rodape from './Components/Rodape/Rodape';
 import Produtos  from './Pages/Produtos/Produtos';
+import Carrinho from './Pages/Carrinho/Carrinho'
 import Pesquisa from './Pages/Pesquisa/Pesquisa';
 import Marcas from './Components/Marcas/Marcas';
+import Home from './Pages/Home/Home';
+
+
 function App() {
+
   return (
     <div className="App">
        <div className='principal'>
         <Router>
-        <Header/>
 
+        <Header/>
+        <ul>
+          <li>
+            <Link to="/Home">Home</Link>
+          </li>
+         
+          
+          <li>
+          <Link to="/Produtos">Produtos</Link>
+          </li>
+        </ul>
         <Routes>
-         <Route path='/Home' element={<Carrossel/>}/> 
+         <Route path='/Home' element={<Home/>}/> 
          <Route path='/Produtos' element={<Produtos/>}/>
-         <Route path='/Pesquisa' element={<Pesquisa/>}/>
+         <Route path='/Carrinho' element={<Carrinho/>}/>
         </Routes>
        
         </Router>
     </div>
-   <Carrossel/>
-   <div className='principal'>
-    <h3> Marcas mais vendidas</h3>
-    <Marcas/>
-   </div>
+   
+  
 
 
    <Rodape/>
